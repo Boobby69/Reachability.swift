@@ -43,7 +43,7 @@ public extension Notification.Name {
     static let reachabilityChanged = Notification.Name("reachabilityChanged")
 }
 
-public class Reachability {
+open class Reachability {
 
     public typealias NetworkReachable = (Reachability) -> ()
     public typealias NetworkUnreachable = (Reachability) -> ()
@@ -81,7 +81,7 @@ public class Reachability {
     public let reachableOnWWAN: Bool = true
 
     /// Set to `false` to force Reachability.connection to .none when on cellular connection (default value `true`)
-    public var allowsCellularConnection: Bool
+    open var allowsCellularConnection: Bool
 
     // The notification center on which "reachability changed" events are being posted
     public var notificationCenter: NotificationCenter = NotificationCenter.default
@@ -96,7 +96,7 @@ public class Reachability {
         return connection
     }
 
-    public var connection: Connection {
+    open var connection: Connection {
         if flags == nil {
             try? setReachabilityFlags()
         }
